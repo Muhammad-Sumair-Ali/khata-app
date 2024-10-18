@@ -1,6 +1,5 @@
 import {
   Disclosure,
-  DisclosureButton,
   Menu,
   MenuButton,
   MenuItem,
@@ -13,8 +12,6 @@ import { useAuthentication } from "../../action/useAuthentication";
 import AddCustomer from "../AddCustomer";
 import Logo from "../../assets/logoKhaata.png";
 
-
- 
 export default function Navar() {
   const { user } = useAuth();
   const { handleLogout } = useAuthentication();
@@ -35,23 +32,22 @@ export default function Navar() {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-14 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <Disclosure.Button className="group relative inline-flex items-center justify-center rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
-            </DisclosureButton>
+            </Disclosure.Button>
           </div>
 
           <div className="flex  items-center justify-between space-x-40 sm:items-stretch sm:justify-start">
             <div className="flex items-center text-gray-900">
-            <Link to="/">
-              <img
-                alt="YourKhaata.co"
-                src={Logo}
-                className="mx-auto h-14 rounded-full w-auto mix-blend-multiply inline-block"
-              />
-              <span>YourKHAATA.co</span>
-            </Link>
-
+              <Link to="/">
+                <img
+                  alt="YourKhaata.co"
+                  src={Logo}
+                  className="mx-auto h-14 rounded-full w-auto mix-blend-multiply inline-block"
+                />
+                <span>YourKHAATA.co</span>
+              </Link>
             </div>
 
             <div className="flex text-indigo-700 font-semibold items-center space-x-5 font-mono">
@@ -62,18 +58,16 @@ export default function Navar() {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        
-           
-
             {user.token ? (
-            <divv className="flex items-center font-bold cursor-pointer">
-            <button onClick={handleLogout}  className="flex items-center  text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 space-x-2">
-              <span>Logout</span>
-              <CiLogout size={24} className="text-white" />
-            </button>
-          </divv>
-          
-                
+              <div className="flex items-center font-bold cursor-pointer">
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center  text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 space-x-2"
+                >
+                  <span>Logout</span>
+                  <CiLogout size={24} className="text-white" />
+                </button>
+              </div>
             ) : (
               <span>
                 <Link

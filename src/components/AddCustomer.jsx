@@ -10,8 +10,6 @@ import { IoMdClose } from "react-icons/io";
 import { useAddCustomer } from "../action/AddCustomer";
 import { useAuth } from "../context/userContext";
 
-// import {   } from "@headlessui/react";
-// import { IoMdClose } from "react-icons/io";
 import { useTransections } from "../action/Transections";
 
 const AddCustomer = () => {
