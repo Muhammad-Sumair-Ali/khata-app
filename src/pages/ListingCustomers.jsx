@@ -8,7 +8,7 @@ import AddCustomer from "../components/AddCustomer";
 const ListingCustomers = ({ setCustomerActive, customerActive }) => {
   
   const [isMobile, setIsMobile] = useState(false);
-  const { data } = useFetch("https://khaata-omega.vercel.app/api/customers");
+  const { data } = useFetch("http://localhost:3000/api/customers");
   const navigate = useNavigate();
 
   const handleResize = () => {
