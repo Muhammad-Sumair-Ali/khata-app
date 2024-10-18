@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { useFetch } from "../action/Transections";
-import { Input, Field } from "@headlessui/react";
 import AddCustomer from "../components/AddCustomer";
 
 const ListingCustomers = ({ setCustomerActive, customerActive }) => {
-  
   const [isMobile, setIsMobile] = useState(false);
-  const { data } = useFetch("http://localhost:3000/api/customers");
+  const { data } = useFetch("http://localhost:3000/api/allcustomers");
   const navigate = useNavigate();
 
   const handleResize = () => {
@@ -21,7 +19,7 @@ const ListingCustomers = ({ setCustomerActive, customerActive }) => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    handleResize(); 
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -36,19 +34,16 @@ const ListingCustomers = ({ setCustomerActive, customerActive }) => {
   return (
     <>
       <div className="bg-white p-2 shadow-md">
-        <Field>
-          <div className="flex items-center gap-2 flex-nowrap relative">
-            <Input
-              type="text"
-              placeholder="Search Customer"
-              className="block w-full rounded-lg border-none bg-gray-300 py-3 px-4 text-md text-black 
-              focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-              <FaSearch className="absolute top-2 left-60 text-gray-700 font-thin" size={30} />
-            <AddCustomer customer={customerActive} />
-
-          </div>
-        </Field>
+        <div className="flex items-center gap-2 flex-nowrap relative">
+          <input
+            type="text"
+            placeholder="Search Customer"
+            className="block w-full rounded-lg border-none bg-gray-300 py-3 px-4 text-md text-black 
+            focus:outline-none focus:ring-2 focus:ring-blue-200"
+          />
+          <FaSearch className="absolute top-2 left-60 text-gray-700 font-thin" size={30} />
+          <AddCustomer customer={customerActive} />
+        </div>
       </div>
 
       <ul className="overflow-y-auto h-[calc(100vh-80px)] p-2 space-y-3">
