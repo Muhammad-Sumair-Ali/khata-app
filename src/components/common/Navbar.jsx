@@ -1,9 +1,6 @@
 import {
   Disclosure,
   Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
 } from "@headlessui/react";
 import { CiLogout } from "react-icons/ci";
 import { useAuth } from "../../context/userContext";
@@ -32,13 +29,13 @@ export default function Navar() {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-14 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <Disclosure.Button className="group relative inline-flex items-center justify-center rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <Disclosure.Button className="group relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
             </Disclosure.Button>
           </div>
 
-          <div className="flex  items-center justify-between space-x-40 sm:items-stretch sm:justify-start">
+          <div className="flex items-center justify-between space-x-40 sm:items-stretch sm:justify-start">
             <div className="flex items-center text-gray-900">
               <Link to="/">
                 <img
@@ -62,7 +59,7 @@ export default function Navar() {
               <div className="flex items-center font-bold cursor-pointer">
                 <button
                   onClick={handleLogout}
-                  className="flex items-center  text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 space-x-2"
+                  className="flex items-center text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 space-x-2"
                 >
                   <span>Logout</span>
                   <CiLogout size={24} className="text-white" />
@@ -81,37 +78,41 @@ export default function Navar() {
 
             <Menu as="div" className="relative ml-1">
               <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="h-12 w-12 ring-1 rounded-full p-1"
                     src={userProfile}
-                    alt="img"
+                    alt="User Profile"
                   />
-                </MenuButton>
+                </Menu.Button>
               </div>
-              <MenuItems
+              <Menu.Items
                 transition
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none"
               >
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Your Profile
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Settings
-                  </a>
-                </MenuItem>
-              </MenuItems>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/profile" // Link to user profile page
+                      className={`block px-4 py-2 text-sm text-gray-700 ${active ? 'bg-gray-100' : ''}`}
+                    >
+                      Your Profile
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/settings" // Link to settings page
+                      className={`block px-4 py-2 text-sm text-gray-700 ${active ? 'bg-gray-100' : ''}`}
+                    >
+                      Settings
+                    </Link>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
             </Menu>
           </div>
         </div>
