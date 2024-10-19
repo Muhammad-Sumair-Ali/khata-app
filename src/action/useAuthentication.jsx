@@ -12,7 +12,7 @@ export const useAuthentication = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://khaata-bfnauo4x7-muhammad-sumairs-projects.vercel.app/api/auth/login", {
+      const response = await axios.post("https://khaata-oipoj5sd0-muhammad-sumairs-projects.vercel.app/api/auth/login", {
         username,
         password,
       });
