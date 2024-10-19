@@ -12,7 +12,7 @@ export const useAuthentication = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://khaata-qsylrhqml-muhammad-sumairs-projects.vercel.app/api/auth/login", {
+      const response = await axios.post("https://khaata-eo2h89ch0-muhammad-sumairs-projects.vercel.app/api/auth/login", {
         username,
         password,
       });
@@ -63,7 +63,7 @@ export const useRegisterUser = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        "https://khaata-eo2h89ch0-muhammad-sumairs-projects.vercel.app/api/auth/signup",
         {
           username,
           password,
