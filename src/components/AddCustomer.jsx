@@ -3,8 +3,6 @@ import { useState } from "react";
 import {
   Dialog,
   Transition,
-  DialogBackdrop,
-  DialogPanel,
 } from "@headlessui/react";
 import { IoMdClose } from "react-icons/io";
 import { useAddCustomer } from "../action/AddCustomer";
@@ -15,8 +13,7 @@ import { useTransections } from "../action/Transections";
 const AddCustomer = () => {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
-  const { handleAddCustomer, name, setName, phone, setPhone } =
-    useAddCustomer();
+  const { handleAddCustomer, name, setName, phone, setPhone } = useAddCustomer();
 
   const isSelect = () => {
     alert("Please  login first");

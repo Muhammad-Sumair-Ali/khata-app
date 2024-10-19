@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://khaata-omega.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.8",
     "axios": "^1.7.7",
+    "headlessui": "^0.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
