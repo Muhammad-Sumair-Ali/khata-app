@@ -6,7 +6,7 @@ import AddCustomer from "../components/AddCustomer";
 
 const ListingCustomers = ({ setCustomerActive, customerActive }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const { data } = useFetch("https://khaata-mzuuvgc3g-muhammad-sumairs-projects.vercel.app/api/allcustomers");
+  const { data } = useFetch("https://khaata-k1xigkkow-muhammad-sumairs-projects.vercel.app/allcustomers");
   const navigate = useNavigate();
 
   const handleResize = () => {
